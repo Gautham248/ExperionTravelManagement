@@ -1,7 +1,8 @@
 // Firebase Realtime Database URLs
-const TRAVEL_REQUESTS_URL = 'https://sample-cd206-default-rtdb.firebaseio.com/travelRequests.json';
-const EMPLOYEE_DETAILS_URL = 'https://sample-cd206-default-rtdb.firebaseio.com/employees.json';
-const MANAGERS_DETAILS_URL = 'https://sample-cd206-default-rtdb.firebaseio.com/managers.json';
+const TRAVEL_REQUESTS_URL = 'https://xpress-d7ec9-default-rtdb.asia-southeast1.firebasedatabase.app/travelRequests.json';
+const EMPLOYEE_DETAILS_URL = 'https://xpress-d7ec9-default-rtdb.asia-southeast1.firebasedatabase.app/employees.json';
+const MANAGERS_DETAILS_URL = 'https://xpress-d7ec9-default-rtdb.asia-southeast1.firebasedatabase.app/managers.json';
+
 class TravelRequestManager {
     constructor() {
         this.allRequests = [];
@@ -329,29 +330,6 @@ class TravelRequestManager {
         }
       }
 
-    createRequestRow(requestId, requestData) {
-        const row = document.createElement('tr');
-        const travelTypeBadge = requestData.travelDetails.travelType === 'international' ?
-            '<span class="badge badge-international">International</span>' :
-            '<span class="badge badge-domestic">Domestic</span>';
-
-        row.innerHTML = `
-            <td>${requestId}</td>
-            <td>${requestData.travelDetails.travelDate || 'N/A'}</td>
-            <td>${requestData.travelDetails.sourceCity || 'N/A'}</td>
-            <td>${requestData.travelDetails.destinationCity || 'N/A'}</td>
-            <td>${requestData.travelDetails.projectCode || 'N/A'}</td>
-            <td class="status-${(requestData.bookingDetails.status || '').toLowerCase()}">${requestData.bookingDetails.status || 'N/A'}</td>
-            <td><button class="btn btn-view-details" data-request-id="${requestId}">View Details 👁️</button></td>
-        `;
-
-        row.querySelector('.btn-view-details').addEventListener('click', () => {
-            window.location.href = `index.html?requestId=${requestId}`;
-        });
-
-        return row;
-    }
-
     setupApproveRejectButtons(requestId, requestData) {
         const approveButton = document.querySelector('.btn-approve');
         const rejectButton = document.querySelector('.btn-reject');
@@ -526,7 +504,6 @@ class TravelRequestManager {
         sendButton.addEventListener('click', () => {
             const message = textarea.value.trim();
             if (message) {
-                // this.addMessageToCommunicationLog(message, 'outgoing');
                 this.updateSelectedTicket(message);
                 textarea.value = '';
             }
