@@ -17,7 +17,7 @@ class TravelRequestManager {
         this.datePicker = null;
         this.initDatePicker();
         this.initialize();
-        // this.initializeEventListeners();
+
     }
 
     async initialize() {
@@ -58,7 +58,7 @@ class TravelRequestManager {
             this.loadRequestDetailsRD();
         }
 
-        this.setupCommunicationSection();
+    
     }
 
     async loadEmployees() {
