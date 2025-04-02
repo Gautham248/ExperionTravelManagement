@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Timeline JS
+    
     const ge_currentDate = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
     const ge_apiUrl = 'https://sample-cd206-default-rtdb.firebaseio.com/.json';
     const ge_timelineChart = document.getElementById('ge-chart');
