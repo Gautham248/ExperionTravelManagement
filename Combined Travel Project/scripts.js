@@ -170,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const firebaseBaseUrl = 'https://sample-cd206-default-rtdb.firebaseio.com';
     const employeesDatabase = `${firebaseBaseUrl}/employees.json`;
     const travelRequestsDatabase = `${firebaseBaseUrl}/travelRequests.json`;
-    const managersDatabase = `${firebaseBaseUrl}/managers.json`;
  
     let travelRequests = {
         recentRequests: [],
