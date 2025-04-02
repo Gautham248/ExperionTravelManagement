@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const TravelRequest_DB = 'https://sample-cd206-default-rtdb.firebaseio.com/travelRequests.json';
     const Manager_DB = 'https://sample-cd206-default-rtdb.firebaseio.com/managers.json';
  
-    // Get form elements
+    
     const sourceCountry = document.getElementById('source-country');
     const sourceCity = document.getElementById('source-city');
     const destinationCountry = document.getElementById('destination-country');
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     }
  
-    // Function to validate travel date
+    
     function isValidTravelDate(date) {
         const today = new Date().setHours(0, 0, 0, 0);
         const selectedDate = new Date(date).setHours(0, 0, 0, 0);
@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTable('previousRequestTableBody', travelRequests.previousRequests, 'No previous requests found.');
     }
  
-    // Render data to a specific table
+    
     function renderTable(tableId, requests, emptyMessage) {
         const tableBody = document.getElementById(tableId);
         tableBody.innerHTML = '';
