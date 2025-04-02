@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="analytics.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="analytics.js" defer></script>
+</head>
+<body>
+    <div class="ge-dashboard-page">
+        <div class="ge-dashboard-sidebar">
+            <div class="ge-dashboard-logo">
+                XPress
+                <hr>
+            </div>
+            <nav class="ge-dashboard-menu">
+                <a href="#" class="ge-dashboard-menu-item">Dashboard</a>
+                <a href="manager.html" class="ge-dashboard-menu-item">Request Management</a>
+                <a href="#" class="ge-dashboard-menu-item analytics-active">Analytics</a>
+                <a href="#" class="ge-dashboard-menu-item">Personal <span class="ge-dashboard-badge">99</span></a>
+                <a href="#" class="ge-dashboard-menu-item">Messages</a>
+                <a href="#" class="ge-dashboard-menu-item">Notifications</a>
+                <a href="#" class="ge-dashboard-menu-item">Setting</a>
+            </nav>
+            <div class="ge-dashboard-user">
+                <div class="ge-dashboard-user-icon">👤</div>
+                <div class="ge-dashboard-user-details">
+                    <div class="ge-dashboard-user-name">Shaik Abdul</div>
+                    <div class="ge-dashboard-user-email">shaik@gmail.com</div>
+                </div>
+            </div>
+        </div>
+        <div class="ge-dashboard-content">
+            <div class="ge-dashboard-container">
+                <div id="ge-timeline" class="ge-dashboard-quadrant ge-dashboard-timeline">
+                    <div class="ge-dashboard-visualization-container">
+                        <div class="ge-dashboard-legend-container">
+                            <div class="ge-dashboard-title">Travel Request Processing Time</div>
+                            <div class="ge-dashboard-legend" id="ge-legend" style="display: none;">
+                                <div class="ge-dashboard-legend-item">
+                                    <div class="ge-dashboard-legend-color" style="background-color: #4CAF50;"></div>
+                                    <span>Closed</span>
+                                </div>
+                                <div class="ge-dashboard-legend-item">
+                                    <div class="ge-dashboard-legend-color" style="background-color: #F44336;"></div>
+                                    <span>Rejected</span>
+                                </div>
+                                <div class="ge-dashboard-legend-item">
+                                    <div class="ge-dashboard-legend-color" style="background-color: #2196F3;"></div>
+                                    <span>Approved</span>
+                                </div>
+                                <div class="ge-dashboard-legend-item">
+                                    <div class="ge-dashboard-legend-color" style="background-color: #FFC107;"></div>
+                                    <span>Ticketed</span>
+                                </div>
+                                <div class="ge-dashboard-legend-item">
+                                    <div class="ge-dashboard-legend-color" style="background-color: #9C27B0;"></div>
+                                    <span>Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ge-loading" class="ge-dashboard-loading">Loading data...</div>
+                        <div class="ge-dashboard-chart-wrapper" id="ge-chart" style="display: none;">
+                            <div class="ge-dashboard-y-axis" id="ge-y-axis"></div>
+                            <div class="ge-dashboard-x-axis" id="ge-x-axis"></div>
+                        </div>
+                    </div>
+                    <div id="ge-tooltip" class="ge-dashboard-tooltip"></div>
+                </div>
+                <div id="ge-filter" class="ge-dashboard-quadrant ge-dashboard-filter">
+                    <div class="ge-dashboard-filter-content">
+                        <div class="ge-dashboard-chart-heading">Travel Request Dashboard</div>
+                        <div id="ge-chartContainer" class="ge-dashboard-chart-container">
+                            <canvas id="ge-duChart"></canvas>
+                        </div>
+                        <div id="ge-statusChartContainer" class="ge-dashboard-status-chart-container">
+                            <button>&#8592;</button> <canvas id="ge-statusChart"></canvas>
+                        </div>
+                        <div id="ge-filterContainer" class="ge-dashboard-filter-container">
+                            <label for="ge-startDate">Start Date:</label>
+                            <input type="date" id="ge-startDate">
+                            <label for="ge-endDate">End Date:</label>
+                            <input type="date" id="ge-endDate">
+                            <button onclick="ge_updateChart()">Filter</button>
+                        </div>
+                        <div id="ge-dateRangeDisplay" class="ge-dashboard-date-range-display"></div>
+                    </div>
+                </div>
+                <div id="ge-pie" class="ge-dashboard-quadrant ge-dashboard-pie">
+                    <div class="ge-dashboard-pie-container">
+                        <div class="ge-dashboard-chart-wrapper">
+                            <canvas id="ge-destinationChart"></canvas>
+                        </div>
+                        <div class="ge-dashboard-controls">
+                            <select id="ge-duFilter">
+                                <option value="all">All Delivery Units</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
